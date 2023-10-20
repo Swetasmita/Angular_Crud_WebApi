@@ -1,0 +1,76 @@
+<div class="container mt-2">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                role="tab" aria-controls="home" aria-selected="true">Add/Edit User</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                role="tab" aria-controls="profile" aria-selected="false">User List</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+                <div class="row mt-2 d-flex">
+                    <div class="form-group col-md-6">
+                        <label for="formGroupExampleInput">Name</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" formControlName="name" 
+                        placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="formGroupExampleInput">Email</label>
+                        <input type="email" class="form-control" id="formGroupExampleInput" formControlName="email"
+                        placeholder="Enter Email">
+                    </div>
+                </div>
+                <div class="row mt-2 d-flex">
+                    <div class="form-group col-md-6">
+                        <label for="formGroupExampleInput2">Mobile</label>
+                        <input type="number" class="form-control" id="formGroupExampleInput2" formControlName="mobile"
+                            placeholder="Enter Mobile">
+                    </div>                  
+                    <div class="form-group col-md-6">
+                        <label for="formGroupExampleInput2">Age</label>
+                        <input type="number" class="form-control" id="formGroupExampleInput2" formControlName="age"
+                        placeholder="Enter Age">
+                    </div>
+                </div>
+                <div class="row mt-2 d-flex btns">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" *ngIf="!currentId">Add</button> &nbsp;
+                        <button type="submit" class="btn btn-primary" *ngIf="currentId">Update</button> &nbsp;
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>                    
+                    <th scope="col">Age</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users; let i = index">
+                    <th scope="row">{{user.id}}</th>
+                    <th scope="row">{{user.name}}</th>
+                    <td>{{user.email}}</td>
+                    <td>{{user.mobile}}</td>                   
+                    <td>{{user.age}}</td>
+                    <td>                        
+                    <button type="button"  (click)="Edit(user)"  class="btn btn-success m-1">Edit</button>
+                    <button type="button"  (click)="DeleteUsers(user.id)" class="btn btn-danger m-1">Delete</button>
+                    </td>
+                  </tr>                 
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

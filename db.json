@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "Users": [
+    {
+      "name": "Raman",
+      "email": "raman@gmail.com",
+      "mobile": 5466778,
+      "age": 28,
+      "id": 2
+    },
+    {
+      "name": "Rashmi_samal",
+      "email": "ra@gmail.com",
+      "mobile": 6278834,
+      "age": 34,
+      "id": 3
+    },
+    {
+      "name": "Anita",
+      "email": "ap@gmail.com",
+      "mobile": 456623444,
+      "age": 46,
+      "id": 4
+    },
+    {
+      "name": "Mahi v",
+      "email": "m@gmail.com",
+      "mobile": 35551234,
+      "age": 30,
+      "id": 5
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
